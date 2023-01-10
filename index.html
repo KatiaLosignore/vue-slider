@@ -42,7 +42,7 @@
                 <i id="next" class="bi bi-caret-right-square-fill" @click="goToNext"></i>
             </div>    
             <div id="thumbnails">
-                <img v-for="(pic, i) in pictures" :src="pic.image" :alt="pic.title" :class="{'active' : i === currentIndex}">
+                <img v-for="(pic, i) in pictures" :src="pic.image" :alt="pic.title" :class="{'active' : i === currentIndex}" @click="setCurrentIndex(i)">
             </div>
             <!-- <div class="autoplay-controls">
                 <button id="autoplay-button">STOP AUTOPLAY</button>
