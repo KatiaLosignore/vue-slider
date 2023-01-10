@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue Slider</title>
+
+        <!-- Bootstrap
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+        
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+        <!-- Style -->
+        <link rel="stylesheet" href="style.css">
+
+        <!-- VueJS -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <!-- Javascript -->
+        <script src="js/pic.js"></script>
+        <script defer src="js/script.js"></script>
+        
+    </head>
+    <body>
+
+        <div class="container" id="root">
+            <div id="carousel">
+                <!-- Prev button -->
+                <i id="prev" class="bi bi-caret-left-square-fill" @click="goToPrev"></i>
+                <div class="gallery">
+                    <figure v-for="(pic, i) in pictures"  v-show="i === currentIndex">
+                        <img :src="pic.image" :alt="pic.title">
+                        <figcaption>
+                            <h2>{{ pic.title }}</h2>
+                            <h3>{{ pic.text }}</h3>
+                        </figcaption>
+                    </figure>
+                </div>
+                <!-- Next button -->
+                <i id="next" class="bi bi-caret-right-square-fill" @click="goToNext"></i>
+            </div>    
+            <div id="thumbnails">
+                <img v-for="(pic, i) in pictures" :src="pic.image" :alt="pic.title" :class="{'active' : i === currentIndex}">
+            </div>
+            <!-- <div class="autoplay-controls">
+                <button id="autoplay-button">STOP AUTOPLAY</button>
+                <button id="reverse-autoplay">
+                    <i class="bi bi-arrow-left-right"></i>
+                </button>
+
+            </div> -->
+
+        </div>
+
+
+
+        <!-- Script -->
+        <!-- <script src="js/data.js"></script> -->
+    
+    </body>
+</html>
